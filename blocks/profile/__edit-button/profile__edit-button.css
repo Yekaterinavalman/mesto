@@ -2,7 +2,8 @@
     outline: none;
     cursor: pointer;
     background-position: center;
-    background-repeat: no-repeat width: 24px;
+    background-repeat: no-repeat;
+    width: 24px;
     height: 24px;
     background-image: url(../../../images/edit-Button.svg);
     background-color: #000;
