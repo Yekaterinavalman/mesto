@@ -7,7 +7,10 @@ let popupForm = popup.querySelector('.popup__form');
 let popupName = document.querySelector('.popup__input_name_name');
 let popupJob = document.querySelector('.popup__input_name_profession');
 
-let  openPopup = () =>  {
+
+
+
+const openPopup = () =>  {
     popupName.value =  profileName.textContent;
     popupJob.value =  profileJob.textContent;
     popup.classList.add('popup_opened');
