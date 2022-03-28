@@ -8,6 +8,7 @@
     <title>Mesto</title>
 </head>
 
+
 <body class="container">
     <div class="page">
 
@@ -18,61 +19,20 @@
         <main class="content">
             <section class="profile">
                 <div class="profile__container">
-                    <img class="profile__avatar" src="./images/я.jpeg" alt="Катя">
+                    <img class="profile__avatar" src="./images/я.jpeg" alt="Аватар">
                     <div class="profile__info">
                         <div class="profile__wrap">
                             <h1 class="profile__name">Вальман Екатерина</h1>
                             <button type="button" class="profile__edit-button"></button>
                         </div>
-                        <p class="profile__information">Art form of paint</p>
+                        <p class="profile__information">Человек чье имя неизвестно</p>
                     </div>
                 </div>
                 <button type="button" class="profile__add-button"></button>
             </section>
 
-            <section class="grid-places">
-                <article class="grid-item">
-                    <img class="grid-item__photo" src="./images/mk-000354.jpeg" alt="картинка">
-                    <div class="grid-item__wrap">
-                        <h2 class="grid-item__name">Абстракция</h2>
-                        <button type="button" class="grid-item__button"></button>
-                    </div>
-                </article>
-                <article class="grid-item">
-                    <img class="grid-item__photo" src="images/kompot.jpeg" alt="фигуры">
-                    <div class="grid-item__wrap">
-                        <h2 class="grid-item__name">Комозиция</h2>
-                        <button type="button" class="grid-item__button"></button>
-                    </div>
-                </article>
-                <article class="grid-item">
-                    <img class="grid-item__photo" src="images/cat.jpg" alt="Котик">
-                    <div class="grid-item__wrap">
-                        <h2 class="grid-item__name">Живопись</h2>
-                        <button type="button" class="grid-item__button"></button>
-                    </div>
-                </article>
-                <article class="grid-item">
-                    <img class="grid-item__photo" src="images/raf.jpg" alt="графика">
-                    <div class="grid-item__wrap">
-                        <h2 class="grid-item__name">Графика</h2>
-                        <button type="button" class="grid-item__button"></button>
-                    </div>
-                </article>
-                <article class="grid-item">
-                    <img class="grid-item__photo" src="images/graffiti.jpeg" alt="граффити">
-                    <div class="grid-item__wrap">
-                        <h2 class="grid-item__name">Граффити</h2>
-                        <button type="button" class="grid-item__button"></button>
-                    </div>
-                </article>
-                <article class="grid-item">
-                    <img class="grid-item__photo" src="images/cosmo.jpeg" alt="космо">
-                    <div class="grid-item__wrap">
-                        <h2 class="grid-item__name">Комикс</h2>
-                        <button type="button" class="grid-item__button"></button>
-                    </div>
-                </article>
+            <section class="photos">
+                <ul class="grid-places"></ul>
             </section>
         </main>
 
@@ -81,17 +41,49 @@
         </footer>
     </div>
 
-    <div id="popup" class="popup">
+    <div id="popup" class="popup popup_type_edit">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form" name="edit-Profile">
-                <input type="text" class="popup__input popup__input_name_name" name="name">
-                <input type="text" class="popup__input popup__input_name_profession" name="profession">
-                <button type="submit" class="popup__button-save">Cохранить</button>
+                <input type="text" placeholder="Введите ваше имя" class="popup__input popup__input_name_name" name="name" required>
+                <input type="text" placeholder="Введите вашу деятельность" class="popup__input popup__input_name_profession" name="profession" required>
+                <input type="submit" class="popup__button-save" value="Сохранить" name="submit">
             </form>
             <button type="button" class="popup__button-close"></button>
         </div>
     </div>
+
+    <div id="popupAdd" class="popup popup_type_add">
+        <div class="popup__container">
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form" name="add-Card">
+                <input type="text" placeholder="Название" class="popup__input popup__input_name_title-card" name="name" required>
+                <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_name_link-card" name="profession" required>
+                <input type="submit" class="popup__button-save" value="Создать" name="submit">
+            </form>
+            <button type="button" class="popup__button-close"></button>
+        </div>
+    </div>
+
+    <div class="popup popup_type_image">
+        <div class="popup__wrap">
+            <img src="." alt="." class="popup__image">
+            <p class="popup__title-image"></p>
+            <button type="button" class="popup__button-close"></button>
+        </div>
+    </div>
+
+    <template id="grid-template">
+  <li class="grid-item">
+    <img src="./images/delete-icon.svg" alt="" class="grid-item__delete-icon">
+    <img src="." alt="." class="grid-item__photo">
+    <div class="grid-item__wrap">
+      <h3 class="grid-item__name"></h3>
+      <button type="button" class="grid-item__like"></button>
+    </div>
+  </li>
+</template>
+
     <script src="./scripts/index.js"></script>
 </body>
 
