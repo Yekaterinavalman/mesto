@@ -1,3 +1,29 @@
+const initialCards = [{
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+
 const popupEditWrap = document.querySelector('.popup_type_edit');
 const popupButton = document.querySelector('.profile__edit-button');
 const popupButtonClose = document.querySelector('.popup__button-close');
@@ -54,7 +80,7 @@ popupButton.addEventListener('click', function() {
 });
 
 
-function  formSubmitHandler(event)  {
+function  submitProfileForm(event)  {
     event.preventDefault();
     profileName.textContent  =  popupName.value;
     profileJob.textContent  =  popupJob.value;
@@ -62,33 +88,7 @@ function  formSubmitHandler(event)  {
 }
 
 
-popupForm.addEventListener('submit',  formSubmitHandler);
-
-const initialCards = [{
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
+popupForm.addEventListener('submit',  submitProfileForm);
 
 
 const popupImage = document.querySelector('.popup_type_image');
@@ -110,25 +110,27 @@ const formSubmitAddHandler = (event) => {
 }
 
 
+
+
 function createCard(titleCardSubmit, linkCardSubmit) {
     const templateCard = document.querySelector('#grid-template').content.querySelector('.grid-item');
     const templateCardElement = templateCard.cloneNode(true);
     const templateCardTitle = templateCardElement.querySelector('.grid-item__name');
     const templateCardImage = templateCardElement.querySelector('.grid-item__photo');
-    const AddlikeButton = templateCardElement.querySelector('.grid-item__like');
-    const AddImage = templateCardElement.querySelector('.grid-item__photo');
-    const AddDeleteIcon = templateCardElement.querySelector('.grid-item__delete-icon');
+    const addlikeButton = templateCardElement.querySelector('.grid-item__like');
+    const addImage = templateCardElement.querySelector('.grid-item__photo');
+    const addDeleteIcon = templateCardElement.querySelector('.grid-item__delete-icon');
 
 
-    AddlikeButton.addEventListener('click', function() {
-        AddlikeButton.classList.toggle('grid-item__like_liked');
+    addlikeButton.addEventListener('click', function() {
+        addlikeButton.classList.toggle('grid-item__like_liked');
     })
 
-    AddDeleteIcon.addEventListener('click', function() {
-        AddDeleteIcon.closest('.grid-item').remove();
+    addDeleteIcon.addEventListener('click', function() {
+        addDeleteIcon.closest('.grid-item').remove();
     })
 
-    AddImage.addEventListener('click', function() {
+    addImage.addEventListener('click', function() {
         openPopup(popupFullImage);
         popupFullImageImage.src = linkCardSubmit;
         popupFullImageTitle.textContent = titleCardSubmit;
