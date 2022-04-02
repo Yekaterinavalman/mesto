@@ -1,6 +1,6 @@
 const initialCards = [{
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+        name: 'Бочка',
+        link: 'https://www.notion.so/image/https%3'
     },
     {
         name: 'Челябинская область',
@@ -133,11 +133,12 @@ function createCard(titleCardSubmit, linkCardSubmit) {
     addImage.addEventListener('click', function() {
         openPopup(popupFullImage);
         popupFullImageImage.src = linkCardSubmit;
+        popupFullImageImage.alt = linkCardSubmit;
         popupFullImageTitle.textContent = titleCardSubmit;
     });
     templateCardTitle.textContent = titleCardSubmit;
     templateCardImage.src = linkCardSubmit;
-    templateCardImage.alt = linkCardSubmit;
+    templateCardImage.textContent = linkCardSubmit;
     return templateCardElement;
 }
 
