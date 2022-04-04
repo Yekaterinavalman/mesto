@@ -138,6 +138,7 @@ function createCard(titleCardSubmit, linkCardSubmit) {
     });
     templateCardTitle.textContent = titleCardSubmit;
     templateCardImage.src = linkCardSubmit;
+    popupFullImageImage.alt = linkCardSubmit;
     templateCardImage.textContent = linkCardSubmit;
     return templateCardElement;
 }
